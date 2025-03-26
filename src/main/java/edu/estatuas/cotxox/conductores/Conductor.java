@@ -42,5 +42,20 @@ public class Conductor {
 
     public void setValoracion(byte valoracion) {
         valoraciones.add(valoracion);
+        actualizarValoracionMedia();
     }
+
+    private void setValoracionMedia(double valoracion) {
+        this.valoracionMedia = valoracion;
+    }
+
+    private void actualizarValoracionMedia() {
+        int totalPuntuacion = valoraciones.stream()
+                                            .mapToInt(Byte::intValue)
+                                            .sum();
+        int numeroValoraciones = valoraciones.size();
+
+        setValoracionMedia((double) totalPuntuacion / numeroValoraciones);
+    }
+
 }
