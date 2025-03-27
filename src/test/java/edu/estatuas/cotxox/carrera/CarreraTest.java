@@ -121,4 +121,14 @@ public class CarreraTest {
 
         assertFalse(carrera.getConductor().isOcupado());
     }
+
+    @Test
+    public void testRealizarPago() {
+        double coste = 1199.99;
+        carrera.setCosteTotal(coste);
+
+        carrera.realizarPago(coste);
+
+        assertEquals(coste, carrera.getCosteTotal(), 0.01);
+    }
 }
