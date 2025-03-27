@@ -74,7 +74,7 @@ public class Carrera {
     }
 
     public void realizarPago(double pago) {
-        this.costeTotal = pago;
+        setCosteTotal(pago);
     }
 
     public void recibirPropina(int propina) {
