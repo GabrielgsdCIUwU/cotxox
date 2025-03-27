@@ -1,6 +1,7 @@
 package edu.estatuas.cotxox.carrera;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -13,8 +14,19 @@ import edu.estatuas.cotxox.conductores.Conductor;
 import edu.estatuas.cotxox.conductores.PoolConductores;
 
 public class CarreraTest {
-    
+
     private Carrera carrera;
+
+    private List<Conductor> getListConductores() {
+        List<Conductor> conductores = new ArrayList<>();
+        Conductor conductor;
+        String[] nombres = { "Samantha" };
+        for (String nombre : nombres) {
+            conductor = new Conductor(nombre);
+            conductores.add(conductor);
+        }
+        return conductores;
+    }
 
     @Before
     public void setUp() {
@@ -90,19 +102,23 @@ public class CarreraTest {
         assertEquals(336.57, carrera.getCosteEsperado(), 0.01);
    }
 
-   @Test
-   public void testAsignarConductor() {
-        List<Conductor> conductores = new ArrayList<>();
-        Conductor conductor;
-        String[] nombres = { "Samantha" };
-        for (String nombre : nombres) {
-            conductor = new Conductor(nombre);
-            conductores.add(conductor);
-        }
-        PoolConductores poolConductores = new PoolConductores(conductores);
+    @Test
+    public void testAsignarConductor() {
+
+        PoolConductores poolConductores = new PoolConductores(getListConductores());
         carrera.asignarConductor(poolConductores);
 
         assertEquals("Samantha", carrera.getConductor().getNombre());
         assertTrue(carrera.getConductor().isOcupado());
-   }
+    }
+
+    @Test
+    public void testLiberarConductor() {
+        PoolConductores poolConductores = new PoolConductores(getListConductores());
+        carrera.asignarConductor(poolConductores);
+
+        carrera.liberarConductor();
+
+        assertFalse(carrera.getConductor().isOcupado());
+    }
 }
