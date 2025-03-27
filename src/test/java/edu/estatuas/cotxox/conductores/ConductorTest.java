@@ -1,6 +1,7 @@
 package edu.estatuas.cotxox.conductores;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +23,13 @@ public class ConductorTest {
     public void testModelo() {
         conductor.setModelo("Chevy Malibu");
         assertEquals("Chevy Malibu", conductor.getModelo());
+    }
+
+    @Test
+    public void testOcupado() {
+        conductor.setOcupado(true);
+
+        assertTrue(conductor.isOcupado());
     }
 
     @Test
