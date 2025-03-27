@@ -77,7 +77,7 @@ public class CarreraTest {
     @Test
     public void testSetGetPropina() {
         int propina = 100;
-        carrera.setPropina(propina);
+        carrera.recibirPropina(propina);
 
         assertEquals(propina, carrera.getPropina());
     }

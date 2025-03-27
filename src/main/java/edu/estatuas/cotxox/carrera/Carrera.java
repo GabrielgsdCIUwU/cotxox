@@ -13,7 +13,7 @@ public class Carrera {
     private int tiempoEsperado;
     private int tiempoCarrera;
     private double costeTotal;
-    private int propina;
+    private int propina = 0;
     private Conductor conductor;
 
     public Carrera(String tarjetaCredito) {
@@ -77,8 +77,8 @@ public class Carrera {
         this.costeTotal = pago;
     }
 
-    public void setPropina(int propina) {
-        this.propina = propina;
+    public void recibirPropina(int propina) {
+        this.propina += propina;
     }
 
     public int getPropina() {
