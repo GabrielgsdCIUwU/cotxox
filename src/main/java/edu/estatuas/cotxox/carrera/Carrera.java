@@ -73,6 +73,10 @@ public class Carrera {
         return costeTotal;
     }
 
+    public void realizarPago(double pago) {
+        this.costeTotal = pago;
+    }
+
     public void setPropina(int propina) {
         this.propina = propina;
     }
