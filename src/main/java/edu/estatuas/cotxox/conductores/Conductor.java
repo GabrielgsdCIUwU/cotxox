@@ -8,7 +8,7 @@ public class Conductor {
     private String modelo;
     private String matricula;
     private double valoracionMedia;
-    private boolean ocupado;
+    private boolean ocupado = false;
     private ArrayList<Byte> valoraciones = new ArrayList<>();
 
     public Conductor(String nombre) {
@@ -48,6 +48,15 @@ public class Conductor {
     private void setValoracionMedia(double valoracion) {
         this.valoracionMedia = valoracion;
     }
+
+    public boolean isOcupado() {
+        return ocupado;
+    }
+
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
+    }
+
 
     private void actualizarValoracionMedia() {
         int totalPuntuacion = valoraciones.stream()
