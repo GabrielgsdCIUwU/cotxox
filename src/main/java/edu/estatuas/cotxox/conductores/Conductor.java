@@ -15,7 +15,7 @@ public class Conductor {
         this.nombre = nombre;
     }
 
-    //region Getters and setter
+    //region Getter and setter
     public String getNombre() {
         return nombre;
     }
@@ -58,6 +58,7 @@ public class Conductor {
     }
 
 
+    //region helpers
     private void actualizarValoracionMedia() {
         int totalPuntuacion = valoraciones.stream()
                                             .mapToInt(Byte::intValue)
