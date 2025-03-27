@@ -99,4 +99,8 @@ public class Carrera {
         return conductor;
     }
 
+    public void liberarConductor() {
+        conductor.setOcupado(false);
+    }
+
 }
