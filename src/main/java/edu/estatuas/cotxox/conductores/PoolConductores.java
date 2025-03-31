@@ -17,7 +17,10 @@ public class PoolConductores {
     }
 
     public Conductor asignarConductor() {
-        int index = generadorRandom.nextInt(getPoolConductores().size());
+        List<Conductor> conductoresDisponibles = getPoolConductores().stream()
+                .filter(c -> !c.isOcupado())
+                .toList();
+        int index = generadorRandom.nextInt(conductoresDisponibles.size());
         return getPoolConductores().get(index);
     }
 }
